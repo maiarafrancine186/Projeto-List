@@ -6,7 +6,7 @@ let minhaListaDeItens= []
 
 function adicionarNovaTarefa(){
     minhaListaDeItens.push({
-        tarefa:input.value,
+        tarefa: input.value,
         concluida: false
     })
 
@@ -19,10 +19,10 @@ function mostrarTarefa(){
 
     let novaLi= ''
 
-    minhaListaDeItens.forEach((item, posicao) =>{
+    minhaListaDeItens.forEach((item, posicao) => {
 
-        novaLi= novaLi + `
-        <li class="task ${item.concluida && 'done'}" >
+        novaLi = novaLi + `
+        <li class="task ${item.concluida && 'done'}">
          <img src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefa(${posicao})">
          <p>${item.tarefa}</p>
          <img src="./img/trash.png" alt="lixeira" onclick="deletarItem(${posicao})">
@@ -31,9 +31,9 @@ function mostrarTarefa(){
         `
     })
 
-    listaCompleta.innerHTML= novaLi
+    listaCompleta.innerHTML = novaLi
 
-    localStorage.setItem('lista',JSON.stringify(minhaListaDeItens))
+    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
     
 
     function concluirTarefa(posicao){
@@ -42,7 +42,7 @@ function mostrarTarefa(){
 
         mostrarTarefa()
 
-    }
+    
 
 }
 
@@ -53,9 +53,9 @@ function deletarItem(posicao){
 }
 
 function recarregarTarefas(){
-    const tarefasDoLocalStorage= localStorage.getItem('lista')
+    const tarefasDoLocalStorage = localStorage.getItem('lista')
     if(tarefasDoLocalStorage){
-    minhaListaDeItens=JSON.parse(tarefasDoLocalStorage)
+    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
     }
     console.log(tarefasDoLocalStorage)
 
