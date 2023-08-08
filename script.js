@@ -2,22 +2,22 @@ const button = document.querySelector(".button-add-taks")
 const input = document.querySelector(".input-task")
 const listaCompleta = document.querySelector(".list-tasks")
 
-let minhaListaDeItens= []
+let minhaListaDeItens = []
 
-function adicionarNovaTarefa(){
+function adicionarNovaTarefa() {
     minhaListaDeItens.push({
         tarefa: input.value,
         concluida: false
     })
 
-    input.value =''
+    input.value = ''
 
     mostrarTarefa()
 }
 
-function mostrarTarefa(){
+function mostrarTarefa() {
 
-    let novaLi= ''
+    let novaLi = ''
 
     minhaListaDeItens.forEach((item, posicao) => {
 
@@ -33,10 +33,12 @@ function mostrarTarefa(){
 
     listaCompleta.innerHTML = novaLi
 
-    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
+    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens
+        )) }
+
     
 
-    function concluirTarefa(posicao){
+    function concluirTarefa(posicao) { 
       
     minhaListaDeItens[posicao].concluida = !minhaListaDeItens[posicao].concluida
 
@@ -46,16 +48,16 @@ function mostrarTarefa(){
 
 }
 
-function deletarItem(posicao){
+function deletarItem(posicao) { 
     minhaListaDeItens.splice(posicao, 1)
 
-    mostrarTarefa()
+    mostrarTarefa ()
 }
 
-function recarregarTarefas(){
+function recarregarTarefas() {
     const tarefasDoLocalStorage = localStorage.getItem('lista')
     
-    if(tarefasDoLocalStorage){
+    if(tarefasDoLocalStorage) {
     minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
     }
     
